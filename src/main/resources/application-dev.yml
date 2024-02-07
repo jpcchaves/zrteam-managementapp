@@ -1,0 +1,19 @@
+spring:
+  config:
+    import: optional:file:.env
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_DEV_URL}
+    username: ${DB_DEV_URL}
+    password: ${DB_DEV_USERNAME}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        format_sql: true
+  web:
+   locale-resolver: fixed
+   locale: pt_BR
