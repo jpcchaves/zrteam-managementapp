@@ -1,14 +1,14 @@
 spring:
   config:
-    import: optional:file:.env
+    import: optional:file:.env[.properties]
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${DB_DEV_URL}
-    username: ${DB_DEV_URL}
-    password: ${DB_DEV_USERNAME}
+    username: ${DB_DEV_USERNAME}
+    password: ${DB_DEV_PASSWORD}
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -17,3 +17,9 @@ spring:
   web:
    locale-resolver: fixed
    locale: pt_BR
+app:
+  jwt:
+    secret: ${JWT_DEV_SECRET}
+    expiration-milliseconds: ${JWT_DEV_EXPIRATION}
+  security:
+    public-endpoints: ${PUBLIC_ENDPOINTS}
